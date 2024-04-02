@@ -1,7 +1,7 @@
 import socket
 
 HOST = 'localhost'
-PORT = 8000
+PORT = 8001
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.bind((HOST, PORT))
@@ -12,5 +12,4 @@ with conn:
     data = conn.recv(1024)
     if not data is None:
         print(data.decode())
-        conn.sendall(b"Hello world")
-    
+        conn.sendall(b"Hello from server")

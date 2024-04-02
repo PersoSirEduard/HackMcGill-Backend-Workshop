@@ -15,6 +15,7 @@ with conn:
         body = "Hello world"
         res = "HTTP/1.1 200 OK\r\n"
         res += "Content-Type: text/html; charset=utf-8\r\n"
+        res += f"Content-Length: {len(body.encode())}"
         res += "Connection: close\r\n"
         res += "\r\n"
         res += body
