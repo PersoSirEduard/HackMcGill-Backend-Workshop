@@ -9,13 +9,21 @@ This project serves as a learning tool to grasp the fundamentals of constructing
 - Node.js >= 20.12.0
 
 ## Usage
+### Option 1
+Run the Docker compose file to automatically build and serve the application.
+```bash
+docker compose up --build
+```
 
-1. Build the React front-end application. Make sure that you first install all the necessary packages first.
+### Option 2
+
+1. Build the React front-end application. Make sure that you first install all the necessary packages.
 ```bash
 cd frontend
 npm install
 npm run build
 ```
+You should now have generated a `public` folder with your compiled frontend code.
 
 2. Download and run the official MongoDB Docker container for the back-end database.
 ```bash

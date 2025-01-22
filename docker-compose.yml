@@ -1,0 +1,31 @@
+services:
+  database:
+    image: mongo:latest
+    container_name: mongo-database
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - app-network
+
+  application:
+    build:
+      dockerfile: Dockerfile
+    container_name: y_application
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_URL=mongodb://mongo-database:27017/app
+    depends_on:
+      - database
+    networks:
+      - app-network
+
+volumes:
+  mongo-data:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge
