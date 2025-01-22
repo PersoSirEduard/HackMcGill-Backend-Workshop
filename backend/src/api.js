@@ -10,19 +10,19 @@ const sessions = new Map();
 function auth(req, res, next) {
     if (req.cookies.sessionId == undefined) {
         res.status(403) // Forbidden
-        return res.send("Authentication failed")
+        return res.send("Forbidden access")
     }
 
     const user = sessions.get(req.cookies.sessionId);
     if (user == undefined) {
         res.status(403) // Forbidden
-        return res.send("Authentication failed")
+        return res.send("Forbidden access")
     }
     req.username = user;
     next();
 }
 
-function registerApi(app) {
+function loadApi(app) {
     
     app.post(apiRoute + '/login', async (req, res) => {
         console.log("POST /login")
@@ -257,4 +257,4 @@ function registerApi(app) {
 
 }
 
-module.exports = {registerApi}
+module.exports = {loadApi}

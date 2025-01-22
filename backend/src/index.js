@@ -21,7 +21,7 @@ app.use('/', express.static(path.join(__dirname, '../../public')));
     console.log("Connecting to the database");
     await mongoose.connect(dbUrl);
 
-    api.registerApi(app);
+    api.loadApi(app);
     app.listen(port, () => {
         console.log(`Listening on port ${port}`);
     });

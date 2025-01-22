@@ -23,7 +23,7 @@ cd frontend
 npm install
 npm run build
 ```
-You should now have generated a `public` folder with your compiled frontend code.
+_You should now have generated a `public` folder with your compiled frontend code._
 
 2. Download and run the official MongoDB Docker container for the back-end database.
 ```bash
